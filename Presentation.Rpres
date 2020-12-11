@@ -38,7 +38,7 @@ Sacramento.0$day <- factor(day$sale_date[which(day$latitude %in% Sacramento$lati
 
 Sacramento.0$Parts <- ifelse(Sacramento.0$latitude >= 38.54151 & Sacramento.0$latitude <= 38.6151 & Sacramento.0$longitude <= -121.4017 & Sacramento.0$longitude >= -121.517,"Center",
                         ifelse(Sacramento.0$latitude >= 38.34151 & Sacramento.0$latitude <= 38.75 & Sacramento.0$longitude <= -121.2517 & Sacramento.0$longitude >= -121.5517,"Suburbs","Forest"))
-
+## what
 ```
 
 Slide With Plot
