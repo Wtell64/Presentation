@@ -1,0 +1,49 @@
+Presentation
+========================================================
+author: 
+date: 
+autosize: true
+
+First Slide
+========================================================
+
+For more details on authoring R presentations please visit <https://support.rstudio.com/hc/en-us/articles/200486468>.
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+Slide With Code
+========================================================
+
+```{r, echo = FALSE}
+library(tidyverse)
+library(caret)
+library(car)
+library(ggmap)
+library(faraway)
+library(philentropy)
+library(ggpubr)
+library(olsrr)
+library(MASS)
+library(MuMIn)
+
+data("Sacramento")
+# Load the data:
+Sacramento
+## Adding the day:
+day <- read.csv("./data.txt", ",", header = TRUE) # This is in the same folder as this document
+Sacramento.0 <- Sacramento
+Sacramento.0$day <- factor(day$sale_date[which(day$latitude %in% Sacramento$latitude & day$longitude %in% Sacramento$longitude)])
+
+Sacramento.0$Parts <- ifelse(Sacramento.0$latitude >= 38.54151 & Sacramento.0$latitude <= 38.6151 & Sacramento.0$longitude <= -121.4017 & Sacramento.0$longitude >= -121.517,"Center",
+                        ifelse(Sacramento.0$latitude >= 38.34151 & Sacramento.0$latitude <= 38.75 & Sacramento.0$longitude <= -121.2517 & Sacramento.0$longitude >= -121.5517,"Suburbs","Forest"))
+
+```
+
+Slide With Plot
+========================================================
+
+```{r, echo=TRUE}
+Sacramento.0 %>% ggplot(aes(price)) + geom_histogram(bins= 50)
+```
